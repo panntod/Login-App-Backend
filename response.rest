@@ -1,0 +1,29 @@
+###
+POST  http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Asfina Andini",
+    "email": "asfina@gmail.com",
+    "password": "admin",
+    "confPassword": "admin",
+    "role": "user"
+}
+
+###
+GET  http://localhost:5000/users
+
+###
+POST  http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin"
+}
+
+###
+GET  http://localhost:5000/me
+
+###
+DELETE  http://localhost:5000/logout
