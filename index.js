@@ -10,39 +10,45 @@ import AuthRoute from "./routes/AuthRoute.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.APP_PORT || 5000
+const PORT = process.env.APP_PORT || 5000;
 
 const sessionStore = SequelizeStore(session.Store);
 
 const store = new sessionStore({
-    db: db
+  db: db,
 });
 
-// (async()=>{
-//     await db.sync();
-// })();
-
-app.use(session({
+app.use(
+  session({
     secret: process.env.SESS_SECRET,
     resave: false,
     saveUninitialized: true,
     store: store,
     cookie: {
-        secure: 'auto'
-    }
-}));
+      secure: "auto",
+    },
+  })
+);
 
-app.use(cors({
+app.use(
+  cors({
     credentials: true,
-    origin: 'http://localhost:3000'
-}));
+    origin: "http://localhost:3000",
+  })
+);
 app.use(express.json());
 app.use(UserRoute);
 app.use(ProductRoute);
 app.use(AuthRoute);
 
-// store.sync();
+/*
+AKTIFKAN CODE INI JIKA KAMU BELUM MEMILIKI TABEL DI DATABASE
+store.sync();
+(async()=>{
+    await db.sync();
+})();
+*/
 
-app.listen(PORT, ()=> {
-    console.log(`Server up on port ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server up on port ${PORT}`);
 });
