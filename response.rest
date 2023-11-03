@@ -11,8 +11,24 @@ Content-Type: application/json
 }
 
 ###
+PATCH  http://localhost:5000/users/340cdf4e-13e6-4505-9882-0ce0478076d6
+Content-Type: application/json
+
+{
+    "name": "Pandhu Arya",
+    "email": "pandhu@gmail.com",
+    "password": "admin",
+    "confPassword": "admin",
+    "role": "user"
+}
+
+###
 GET  http://localhost:5000/users
 
+###
+DELETE  http://localhost:5000/users/:uuid
+
+// login dan logout
 ###
 POST  http://localhost:5000/login
 Content-Type: application/json
@@ -27,3 +43,32 @@ GET  http://localhost:5000/me
 
 ###
 DELETE  http://localhost:5000/logout
+
+// product
+
+###
+GET  http://localhost:5000/products
+
+###
+GET  http://localhost:5000/products/:id
+
+###
+POST  http://localhost:5000/products
+Content-Type: application/json
+
+{
+   "name": "Akatsuki Pain", 
+   "price": "1200000"
+}
+
+###
+PATCH  http://localhost:5000/products/3d51cb44-29e8-48eb-a9ff-cd174273ea32
+Content-Type: application/json
+
+{
+   "name": "Slot Gacor Zeuszz", 
+   "price": "125000"
+}
+
+###
+DELETE  http://localhost:5000/products/:id
