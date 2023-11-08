@@ -32,7 +32,6 @@ app.use(
     saveUninitialized: true,
     store: store,
     cookie: {
-
       // jika http maka FALSE, jika https maka TRUE
       secure: "auto",
     },
@@ -42,10 +41,8 @@ app.use(
 // mendeklarasikan cors
 app.use(
   cors({
-
     // mendeklarasikan credentials mana yang bisa menggunakan enpoint ini
     credentials: true,
-
     // jika banyak data maka menggunakan []
     origin: "http://localhost:3000",
   })
